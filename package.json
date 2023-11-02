@@ -14,7 +14,7 @@
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'"
   },
   "dependencies": {
-    "@mdi/font": "5.9.55",
+    "@mdi/font": "^5.9.55",
     "pinia": "^2.1.7",
     "roboto-fontface": "*",
     "vue": "^3.3.4",
