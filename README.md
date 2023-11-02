@@ -55,3 +55,12 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
+
+### Fake Api
+
+This is a [JSON Server](https://www.npmjs.com/package/json-server) to get a full fake REST API
+
+```bash
+cd data
+json-server --watch db.json --port 3001
+```
