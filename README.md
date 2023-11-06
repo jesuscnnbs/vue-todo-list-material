@@ -1,10 +1,6 @@
 # vue-todo-list
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+This is a simple project using vue 3, pinia and vuetify
 
 ## Customize configuration
 
@@ -60,7 +56,19 @@ npm run lint
 
 This is a [JSON Server](https://www.npmjs.com/package/json-server) to get a full fake REST API
 
+In the root directory we create data folder, move into it and create and install [JSON Server](https://www.npmjs.com/package/json-server)
+
 ```bash
+npm install -g json-server
+```
+
+Create the fake database and run the server.
+
+```bash
+mkdir data
 cd data
+touch db.json
 json-server --watch db.json --port 3001
 ```
+
+Now you can go to [http://localhost:3001/todos](http://localhost:3001/todos) to see the resources.
