@@ -21,6 +21,24 @@ export const useTodoStore = defineStore('todoes', {
         console.log(error)
       }
     },
+    async addTodo(task) {
+      const newValue = {
+        completed: false,
+        task: task
+      }
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newValue),
+      }
+      try {
+        const response = await fetch(url, options)
+        const responseValue = await response.json()
+        this.todoes.push(responseValue)
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    },
     async updateTodo(id, newValue) {
       const options = {
         method: 'PUT',
@@ -28,14 +46,13 @@ export const useTodoStore = defineStore('todoes', {
         body: JSON.stringify(newValue),
       }
       try{
-        const response = await fetch(`${url}/${id}`, options)
+        await fetch(`${url}/${id}`, options)
         const itemIndex = this.todoes.findIndex((item) => item.id == id)
         this.todoes[itemIndex] = {
           ...this.todoes[itemIndex],
           completed: newValue.completed,
           task: newValue.task
         } 
-        console.log("Success:", response);
       } catch (error) {
         console.log("Error:", error);
       }
@@ -46,10 +63,9 @@ export const useTodoStore = defineStore('todoes', {
         headers: { 'Content-Type': 'application/json' },
       }
       try{
-        const response = await fetch(`${url}/${id}`, options)
+        await fetch(`${url}/${id}`, options)
         const itemIndex = this.todoes.findIndex((item) => item.id == id)
         this.todoes.splice(itemIndex, 1)
-        console.log("Success:", response);
       } catch (error) {
         console.log("Error:", error);
       }
