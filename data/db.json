@@ -1,13 +1,8 @@
 {
   "todos": [
     {
-      "task": "camion",
+      "task": "Todo 2",
       "completed": true,
-      "id": 1
-    },
-    {
-      "task": "camion",
-      "completed": false,
       "id": 2
     }
   ]

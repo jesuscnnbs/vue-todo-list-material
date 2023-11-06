@@ -10,7 +10,7 @@
     </template>
     <template v-slot:append>
       <v-btn density="compact" icon="mdi-pencil-box-outline" color="secondary" class="mr-2"></v-btn>
-      <v-btn density="compact" icon="mdi-trash-can-outline" color="red"></v-btn>
+      <v-btn @click="deleteItem(id)" density="compact" icon="mdi-trash-can-outline" color="red"></v-btn>
     </template>
   </v-list-item>
 </template>
@@ -57,6 +57,11 @@ export default defineComponent({
           this.loading = false
         }
       }
+    }
+  },
+  methods: {
+    deleteItem(taskId) {
+      this.todoStore.deleteTodo(taskId)
     }
   }
 })

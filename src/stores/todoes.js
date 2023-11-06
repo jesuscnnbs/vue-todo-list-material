@@ -22,7 +22,6 @@ export const useTodoStore = defineStore('todoes', {
       }
     },
     async updateTodo(id, newValue) {
-      console.log('PUT',id, newValue)
       const options = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -30,6 +29,26 @@ export const useTodoStore = defineStore('todoes', {
       }
       try{
         const response = await fetch(`${url}/${id}`, options)
+        const itemIndex = this.todoes.findIndex((item) => item.id == id)
+        this.todoes[itemIndex] = {
+          ...this.todoes[itemIndex],
+          completed: newValue.completed,
+          task: newValue.task
+        } 
+        console.log("Success:", response);
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    },
+    async deleteTodo(id) {
+      const options = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      }
+      try{
+        const response = await fetch(`${url}/${id}`, options)
+        const itemIndex = this.todoes.findIndex((item) => item.id == id)
+        this.todoes.splice(itemIndex, 1)
         console.log("Success:", response);
       } catch (error) {
         console.log("Error:", error);
