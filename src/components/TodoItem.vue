@@ -9,7 +9,7 @@
       </v-checkbox>
     </template>
     <template v-slot:append>
-      <v-btn density="compact" icon="mdi-pencil-box-outline" color="secondary" class="mr-2"></v-btn>
+      <v-btn @click="showEditTask(id)" density="compact" icon="mdi-pencil-box-outline" color="secondary" class="mr-2"></v-btn>
       <v-btn @click="deleteItem(id)" density="compact" icon="mdi-trash-can-outline" color="red"></v-btn>
     </template>
   </v-list-item>
@@ -62,6 +62,9 @@ export default defineComponent({
   methods: {
     deleteItem(taskId) {
       this.todoStore.deleteTodo(taskId)
+    },
+    showEditTask(taskId) {
+      this.todoStore.setSelectedTodo(taskId)
     }
   }
 })
