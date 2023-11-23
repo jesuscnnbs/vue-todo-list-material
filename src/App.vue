@@ -3,6 +3,13 @@
     <v-main>
       <router-view/>
     </v-main>
+    <v-footer>
+      <v-row justify="center">
+        <v-col class="text-center mt-4" cols="12">
+        {{ new Date().getFullYear() }} — <strong>Jesús García</strong>
+      </v-col>
+      </v-row>
+    </v-footer>
   </v-app>
 </template>
 

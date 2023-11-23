@@ -17,8 +17,8 @@ export const useTodoStore = defineStore('todoes', {
           method: 'GET'
         }
         const response = await fetch(url, options)
-        const test = await response.json()
-        this.todoes = test
+        const resJson = await response.json()
+        this.todoes = resJson
       } catch (error) {
         console.log(error)
       }

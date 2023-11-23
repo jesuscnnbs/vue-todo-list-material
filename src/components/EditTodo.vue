@@ -1,8 +1,8 @@
 <template>
-  <v-dialog v-model="showDialog" width="500">
-    <v-card :title="editedTask">
+  <v-dialog @update:model-value="hideEditTask()" v-model="showDialog" width="500">
+    <v-card title="Edit">
       <v-card-text>
-        <v-text-field v-if="selectedTodo"
+        <v-text-field
           label="Task"
           hide-details="auto"
           v-model="editedTask"
